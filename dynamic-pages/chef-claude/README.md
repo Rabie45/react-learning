@@ -1,8 +1,12 @@
-# React + Vite
+# Chef Claude
+Chef Claude is a dynamic web application that generates personalized recipes based on user-provided ingredients. This project is part of a larger React learning repository and demonstrates the use of dynamic page generation and API integration.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features
+- Ingredient Input: Users can enter a list of ingredients they have on hand.
+- Recipe Generation: The application uses an AI-powered API to create unique recipes based on the provided ingredients.
+- Dynamic Content: Each generated recipe includes a title, ingredients list, and step-by-step instructions.
+- Responsive Design: The interface is designed to work well on both desktop and mobile devices.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
+- React.js
+- API integration (likely with an AI service for recipe generation)
