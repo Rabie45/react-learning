@@ -5,23 +5,15 @@ import Confetti from "react-confetti";
 
 export default function Main() {
   function getRandList() {
-    return new Array(10).fill(0).map(() => ({
+    return new Array(10).fill(0).map((_,index) => ({
       value: Math.ceil(Math.random() * 6),
-      id: nanoid(),
+      id: index,
       isHeld: false,
     }));
   }
 
   const [numPad, setNumpad] = useState(() => getRandList());
   const buttonRef = useRef(null);
-  const numPadList = numPad.map((pad) => (
-    <NumPad
-      key={pad.id}
-      value={pad.value}
-      isHeld={pad.isHeld}
-      hold={() => hold(pad.id)} // Pass as a function reference
-    />
-  ));
 
   function handleRoll() {
     if (!gameWon) {
@@ -38,8 +30,8 @@ export default function Main() {
   function hold(id) {
     console.log(id);
     setNumpad((prevNumPad) =>
-      prevNumPad.map((pad) =>
-        pad.id === id ? { ...pad, isHeld: !pad.isHeld } : pad
+      prevNumPad.map((pad,index) =>
+        index === id ? { ...pad, isHeld: !pad.isHeld } : pad
       )
     );
   }
@@ -55,7 +47,16 @@ export default function Main() {
   return (
     <main>
       {gameWon && <Confetti />}
-      <div className="num-container">{numPadList}</div>
+      <div className="num-container">
+        {numPad.map((pad,index) => (
+          <NumPad
+            key={index}
+            value={pad.value}
+            isHeld={pad.isHeld}
+            hold={() => hold(index)} // Pass as a function reference
+          />
+        ))}
+      </div>
       <button
         ref={buttonRef}
         onClick={handleRoll}
