@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { nanoid } from "nanoid";
 import NumPad from "./NumPad.jsx";
 import Confetti from "react-confetti";
 
