@@ -1,19 +1,22 @@
-import { useState } from "react";
 import { languages } from "../languages";
-
-export default function LangCard() {
-
-  const langElement = languages.map((language) => {
+import clsx from "clsx";
+export default function LangCard({wrongGussedCounter}) {
+return (
+  <>
+{languages.map((language, index) => {
+    const isLanguageLost = index < wrongGussedCounter;
     const styles = {
       backgroundColor: language.backgroundColor,
       color: language.color,
     };
+    const className = clsx("chip", isLanguageLost && "lost");
     return (
-      <span className="chip" key={language.name} style={styles}>
+      <span className={className} key={language.name} style={styles}>
         {language.name}
       </span>
     );
-  });
-
-  return <>{langElement}</>;
+  })
+}
+ </> 
+)
 }
