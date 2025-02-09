@@ -3,12 +3,12 @@ import { useState } from "react";
 import clsx from "clsx";
 import { words } from "./words";
 import Confetti from "react-confetti";
-import LangCard from "./LangCard";
 
 export default function Header() {
   const [currentWord, setCurrentWord] = useState(
     words[Math.floor(Math.random() * words.length)]
   );
+  console.log(currentWord);
   const [guessedLetters, setGuessedLetters] = useState([]);
 
   const isGameWon = currentWord
